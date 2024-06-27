@@ -3,36 +3,38 @@
 """
 from base_caching import BaseCaching
 
+
 class BasicCache(BaseCaching):
-    
+    """
+    Defines a class for caching information in key-value pairs
+    Methods:
+        put(key, item) - store a key-value pair
+        get(key) - retrieve the value associated with a key
+    """
+
     def __init__(self):
-        """initilize BaseCache class
+        """
+        Initialize the class using the parent class __init__ method
         """
         BaseCaching.__init__(self)
-        # self.cache_data = {}
-        
+
     def put(self, key, item):
         """
-    Store an item in the cache with the given key.
-
-    Parameters:
-    key (str): The unique identifier for the item in the cache.
-    item (object): The item to be stored in the cache.
-
-    Returns:
-    None
-    """
-        if key is not None and item is not None:
+        Store a key-value pair
+        Args:
+            Key
+            Item
+        """
+        if key is None or item is None:
+            pass
+        else:
             self.cache_data[key] = item
-            
+
     def get(self, key):
         """
-        Retrieve an item from the cache with the given key.
-        parameters.
-        key (str): The unique identifier for the item in the cache.
-        Returns:
-        cache if the key exists, otherwise none
+        Return value linked to key.
+        If key is None or doesn't exist, return None
         """
-        if key is None or key not in self.cache_data:
-            return None
-        return self.cache_data.get(key)
+        if key is not None and key in self.cache_data.keys():
+            return self.cache_data[key]
+        return None
