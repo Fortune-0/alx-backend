@@ -14,6 +14,7 @@ class Config(object):
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
+
 @app.route('/', strict_slashes=False)
 def index() -> str:
     """Return a given string"""
