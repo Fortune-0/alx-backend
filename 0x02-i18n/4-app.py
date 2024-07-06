@@ -2,8 +2,9 @@
 """A script that starts a flask web application
 """
 
-from flask import Flask, render_template, request
-from flask_babel import Babel, _
+from flask import Flask, render_template, request, g
+from flask_babelex import Babel, _
+
 
 app = Flask("__name__")
 babel = Babel(app)
@@ -33,7 +34,7 @@ def get_locale():
 @app.route('/', strict_slashes=False)
 def index() -> str:
     """Return a given string"""
-    return render_template('2-index.html')
+    return render_template('4-index.html')
 
 
 if __name__ == "__main__":
