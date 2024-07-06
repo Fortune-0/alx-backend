@@ -2,9 +2,8 @@
 """A script that starts a flask web application
 """
 
-from flask import Flask, render_template, request, g
-from flask_babelex import Babel, _
-
+from flask import Flask, render_template, request
+from flask_babel import Babel, _
 
 app = Flask("__name__")
 babel = Babel(app)
