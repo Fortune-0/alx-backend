@@ -2,7 +2,7 @@
 """A script that starts a flask web application
 """
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_babel import Babel
 
 app = Flask("__name__")
@@ -21,14 +21,16 @@ app.config.from_object(Config)
 
 @babel.localeselector
 def get_locale():
-    """Return the locale"""
+    """
+    Select and return best language match based on supported languages
+    """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/', strict_slashes=False)
 def index() -> str:
     """Return a given string"""
-    return render_template('1-index.html')
+    return render_template('2-index.html')
 
 
 if __name__ == "__main__":
